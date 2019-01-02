@@ -14,6 +14,15 @@
     }
   }
 
+  // Add Click Event Listener for <input> tags & pass in a function
+  CheckList.prototype.addClickHandler = function (fn) {
+    this.$element.on('click', 'input', function (e) {
+      let email = e.target.value;
+      this.removeRow(email);
+      fn(email);
+    }.bind(this));
+  };
+
   CheckList.prototype.addRow = function (coffeeOrder) {
     // Remove any existing rows that match the email address
     this.removeRow(coffeeOrder.emailAddress);
