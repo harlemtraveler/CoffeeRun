@@ -12,7 +12,10 @@
   const Validation = App.Validation;
   const CheckList = App.CheckList;
   const remoteDS = new RemoteDataStore(SERVER_URL);
-  const myTruck = new Truck('nc-1701', remoteDS);
+  // Remote Storage
+  // const myTruck = new Truck('nc-1701', remoteDS);
+  // Local Storage
+  const myTruck = new Truck('nc-1701', new DataStore());
   window.myTruck = myTruck;
   const checkList = new CheckList(CHECKLIST_SELECTOR);
 
@@ -24,10 +27,14 @@
 
   // Call "FormHandler" "addSubmitHandler()" function
   formHandler.addSubmitHandler(function (data) {
-    myTruck.createOrder(data);
-    checkList.addRow(data);
+    return myTruck.createOrder(data)
+      .then(function () {
+        checkList.addRow(data);
+      });
   });
 
   // Runs Validation of email format when each character is entered or removed
   formHandler.addInputHandler(Validation.isCompanyEmail);
+
+  myTruck.printOrders(checkList.addRow.bind(checkList));
 })(window);
