@@ -7,6 +7,7 @@
   const Truck = App.Truck;
   const DataStore = App.DataStore;
   const FormHandler = App.FormHandler;
+  const Validation = App.Validation;
   const CheckList = App.CheckList;
   const myTruck = new Truck('nc-1701', new DataStore());
   window.myTruck = myTruck;
@@ -23,4 +24,7 @@
     myTruck.createOrder(data);
     checkList.addRow(data);
   });
+
+  // Runs Validation of email format when each character is entered or removed
+  formHandler.addInputHandler(Validation.isCompanyEmail);
 })(window);

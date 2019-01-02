@@ -37,6 +37,15 @@
     });
   }
 
+  // Run a passed func when each character is entered or removed
+  FormHandler.prototype.addInputHandler = function (fn) {
+    console.log('[*] Setting input handker for form');
+    this.$formElement.on('input', '[name="emailAddress"]', function (e) {
+      let emailAddress = e.target.value;
+      console.log(fn(emailAddress));
+    });
+  }
+
   App.FormHandler = FormHandler;
   window.App = App;
 })(window);
