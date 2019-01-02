@@ -3,13 +3,16 @@
   // Instantiate "FormHandler" instance
   const FORM_SELECTOR = '[data-coffee-order="form"]';
   const CHECKLIST_SELECTOR = '[data-coffee-order="checklist"]';
+  const SERVER_URL = 'http://coffeerun-v2-rest-api.herokuapp.com/api/coffeeorders';
   const App = window.App;
   const Truck = App.Truck;
   const DataStore = App.DataStore;
+  const RemoteDataStore = App.RemoteDataStore;
   const FormHandler = App.FormHandler;
   const Validation = App.Validation;
   const CheckList = App.CheckList;
-  const myTruck = new Truck('nc-1701', new DataStore());
+  const remoteDS = new RemoteDataStore(SERVER_URL);
+  const myTruck = new Truck('nc-1701', remoteDS);
   window.myTruck = myTruck;
   const checkList = new CheckList(CHECKLIST_SELECTOR);
 
