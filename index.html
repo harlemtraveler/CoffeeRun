@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-    <link rel="stylesheet" href="stylesheets/styles.css">
+    <!-- <link rel="stylesheet" href="stylesheets/styles.css"> -->
     <title>CoffeeRun</title>
   </head>
   <body class="container">
@@ -67,7 +67,7 @@
 
             <!-- Range Slider -->
             <div class="form-group">
-              <label for="strengthLevel">Caffien Rating</label>
+              <label for="strengthLevel">Caffiene Rating</label>
               <input type="range" name="strength" id="strengthLevel" value="30">
             </div>
 
@@ -77,9 +77,18 @@
           </form>
         </div>
       </div>
+
+      <!-- Orders Checklist -->
+      <div class="card mt-3">
+        <div class="card-body">
+          <h4>Pending Orders:</h4>
+          <div data-coffee-order="checklist"></div>
+        </div>
+      </div>
     </section>
     <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" charset="utf-8"></script>
+    <script src="scripts/checklist.js" charset="utf-8"></script>
     <script src="scripts/formhandler.js" charset="utf-8"></script>
     <script src="scripts/datastore.js" charset="utf-8"></script>
     <script src="scripts/truck.js" charset="utf-8"></script>
@@ -90,5 +99,5 @@
 <!--
   [+] To start the browser-sync pacakge, run the following command:
 
-    browser-sync start --server --files "*.html, stylesheets/*.css, scripts/*.js"
+    browser-sync start --server --browser "Google Chrome" --files "*.html, stylesheets/*.css, scripts/*.js"
 -->

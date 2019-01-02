@@ -14,7 +14,7 @@
     return this.data[key];
   }
 
-  DataStore.prototype.addAll = function() {
+  DataStore.prototype.getAll = function() {
     return this.data;
   }
 
