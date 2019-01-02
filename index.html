@@ -5,6 +5,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <!-- <link rel="stylesheet" href="stylesheets/styles.css"> -->
+    <style>
+      form :focus:required:invalid {
+        border-color: #a94442;
+      }
+    </style>
     <title>CoffeeRun</title>
   </head>
   <body class="container">
@@ -34,8 +39,7 @@
                 id="emailInput"
                 value=""
                 placeholder="dr@who.com"
-                required
-                pattern="[a-zA-Z\s]+">
+                required>
             </div>
 
             <!-- Radio Buttons -->

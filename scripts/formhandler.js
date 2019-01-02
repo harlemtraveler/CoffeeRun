@@ -35,16 +35,22 @@
       this.reset();
       this.elements[0].focus();
     });
-  }
+  };
 
   // Run a passed func when each character is entered or removed
   FormHandler.prototype.addInputHandler = function (fn) {
-    console.log('[*] Setting input handker for form');
+    console.log('[*] Setting input handler for form');
     this.$formElement.on('input', '[name="emailAddress"]', function (e) {
       let emailAddress = e.target.value;
-      console.log(fn(emailAddress));
+      let message = '';
+      if (fn(emailAddress)) {
+        e.target.setCustomValidity('');
+      } else {
+        message = emailAddress + ' is not an auhtorized email address!';
+        e.target.setCustomValidity(message);
+      }
     });
-  }
+  };
 
   App.FormHandler = FormHandler;
   window.App = App;
